@@ -15,11 +15,12 @@ body {
 }
 
 .episode-card {
-  border: 1px solid #ddd;
+  border: 1px solid #2a1a5e;
   border-radius: 8px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  background: #12002e;
 }
 
 .episode-card img {
@@ -43,7 +44,7 @@ body {
   display: block;
   padding: 0.75rem;
   font-size: 0.8rem;
-  color: #0070f3;
+  color: #a78bfa;
 }
 html {
   background: radial-gradient(ellipse at top, #1a0a3e 0%, #0a0015 60%, #000008 100%);
