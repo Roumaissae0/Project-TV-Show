@@ -7,6 +7,55 @@ body {
   color: #e8e8f0;
 }
 
+.episode-controls {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: auto minmax(180px, 1fr) auto minmax(180px, 1fr) auto auto;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border: 1px solid #2a1a5e;
+  border-radius: 8px;
+  background: #12002e;
+  box-shadow: 0 10px 24px rgba(0, 0, 8, 0.35);
+}
+
+.episode-controls label {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.episode-controls input,
+.episode-controls select,
+.episode-controls button {
+  width: 100%;
+  min-width: 0;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid #4c2c8f;
+  border-radius: 6px;
+  background: #0a0015;
+  color: #e8e8f0;
+}
+
+.episode-controls button {
+  cursor: pointer;
+  font-weight: 700;
+  background: #2a1a5e;
+}
+
+.episode-controls button:hover {
+  background: #3d2684;
+}
+
+.match-count {
+  margin: 0;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
 .episodes-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -49,4 +98,14 @@ body {
 html {
   background: radial-gradient(ellipse at top, #1a0a3e 0%, #0a0015 60%, #000008 100%);
   min-height: 100%;
+}
+
+@media (max-width: 760px) {
+  .episode-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .match-count {
+    white-space: normal;
+  }
 }
