@@ -9,10 +9,29 @@
   </head>
 
   <body>
-        <div id="controls"></div>
-    <div id="root">
+    <!-- Shows View -->
+    <div id="shows-view">
+      <div id="shows-controls">
+        <label for="show-search">Search shows:</label>
+        <input
+          type="search"
+          id="show-search"
+          placeholder="e.g. comedy"
+          aria-label="Search shows by name, summary or genre"
+        />
+        <p id="show-count" aria-live="polite"></p>
+        <label for="show-select">Jump to show:</label>
+        <select id="show-select" aria-label="Jump to a specific show"></select>
+      </div>
+      <div id="shows-listing"></div>
     </div>
 
+    <!-- Episodes View -->
+    <div id="episodes-view" hidden>
+      <a href="#" id="back-to-shows">&#8592; Back to Shows</a>
+      <div id="controls"></div>
+      <div id="root"></div>
+    </div>
 
     <!-- Loads YOUR javascript code -->
     <script src="script.js"></script>
