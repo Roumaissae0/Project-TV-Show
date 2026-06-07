@@ -200,7 +200,28 @@ function showShowsView() {
   document.getElementById("episodes-view").hidden = true;
   document.getElementById("back-to-shows").hidden = true;
 }
+function createShowSelector(shows) {
+  const select = document.getElementById("show-select");
+  select.innerHTML = "";
 
+  const defaultOption = document.createElement("option");
+  defaultOption.value = "";
+  defaultOption.textContent = "-- Select a show --";
+  select.appendChild(defaultOption);
+
+  shows.forEach((show) => {
+    const option = document.createElement("option");
+    option.value = show.id;
+    option.textContent = show.name;
+    select.appendChild(option);
+  });
+
+  select.addEventListener("change", () => {
+    if (!select.value) return;
+    const target = document.querySelector(`[data-show-id="${select.value}"]`);
+    if (target) target.closest("article").scrollIntoView({ behavior: "smooth" });
+  });
+}
 async function setup() {
   document.getElementById("back-to-shows").hidden = true;
   document.getElementById("shows-listing").innerHTML = "<p>Loading shows, please wait...</p>";
@@ -214,10 +235,12 @@ async function setup() {
 
     allShows = sortedShows;
     renderShows(allShows);
+    createShowSelector(allShows);
 
     document.getElementById("show-search").addEventListener("input", (e) => {
       const matched = e.target.value ? filterShows(allShows, e.target.value) : allShows;
       renderShows(matched);
+      createShowSelector(matched);
     });
 
     document.getElementById("back-to-shows").addEventListener("click", (e) => {
@@ -229,5 +252,6 @@ async function setup() {
     document.getElementById("shows-listing").innerHTML = "<p>Something went wrong loading the shows. Please try refreshing the page.</p>";
   }
 }
+
 
 window.onload = setup;
