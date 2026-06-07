@@ -9,9 +9,29 @@
   </head>
 
   <body>
-        <div id="controls"></div>
-    <div id="root">
-    </div>
+    <header>
+      <h1>TV Shows</h1>
+      <nav>
+        <a href="#" id="back-to-shows">Back to shows</a>
+      </nav>
+    </header>
+    <main>
+    <div id="shows-view"></div>
+    <input
+          type="search"
+          id="show-search"
+          placeholder="Search shows..."
+          aria-label="Search shows by name, genre or summary"
+        />
+        <p id="show-count" aria-live="polite"></p>
+        <div id="shows-listing"></div>
+      </div>
+
+      <div id="episodes-view" hidden>
+    <div id="controls"></div>
+    <div id="root"></div>
+    </main>
+        
 
 
     <!-- Loads YOUR javascript code -->
