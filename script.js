@@ -200,6 +200,7 @@ function showShowsView() {
   document.getElementById("episodes-view").hidden = true;
   document.getElementById("back-to-shows").hidden = true;
 }
+
 function createShowSelector(shows) {
   const select = document.getElementById("show-select");
   select.innerHTML = "";
@@ -222,6 +223,7 @@ function createShowSelector(shows) {
     if (target) target.closest("article").scrollIntoView({ behavior: "smooth" });
   });
 }
+
 async function setup() {
   document.getElementById("back-to-shows").hidden = true;
   document.getElementById("shows-listing").innerHTML = "<p>Loading shows, please wait...</p>";
@@ -252,6 +254,5 @@ async function setup() {
     document.getElementById("shows-listing").innerHTML = "<p>Something went wrong loading the shows. Please try refreshing the page.</p>";
   }
 }
-
 
 window.onload = setup;
